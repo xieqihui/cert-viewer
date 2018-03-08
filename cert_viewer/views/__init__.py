@@ -69,15 +69,20 @@ def add_rules(app, config):
     app.url_map.converters['regex'] = RegexConverter
 
     app.add_url_rule('/', view_func=GenericView.as_view('index', template='index.html'))
-
-    app.add_url_rule(rule='/<certificate_uid>', endpoint='award',
-                     view_func=AwardView.as_view(name='award', template='award.html',
-                     view=certificate_store_bridge.award))
+    app.add_url_rule('/upload', endpoint='award',
+                     view_func=AwardView.as_view(
+                         name='award', template='award.html',
+                         view=certificate_store_bridge.award),
+                     methods=['POST',])
+# 
+#     app.add_url_rule(rule='/<certificate_uid>', endpoint='award',
+#                      view_func=AwardView.as_view(name='award', template='award.html',
+#                      view=certificate_store_bridge.award))
 
     app.add_url_rule('/certificate/<certificate_uid>',
                      view_func=JsonAwardView.as_view('certificate', view=certificate_store_bridge.get_award_json))
 
-    app.add_url_rule('/verify/<certificate_uid>',
+    app.add_url_rule('/verify',
                      view_func=VerifyView.as_view('verify', view=verifier_bridge.verify))
 
     app.add_url_rule('/intro/', view_func=introduction_store_bridge.insert_introduction, methods=['POST', ])

@@ -27,27 +27,17 @@
                 {% endfor %}
             </div>
     {% else %}
-        <div class="intro-text">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-            mus. Donec qam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-            quis enim.
-        </div>
-
+<div clsss="container">
+<div class="jumbotron" style="padding-top: 5px; padding-bottom: 15px">
+	    <form id = 'input' method='post' action='/upload'  class="form-signin" enctype="multipart/form-data">
+                    <input type="file" name="cert_json" id="cert_json" class="form-control"  placeholder="cert_json" required autofocus>
+		    <p> </p>
+		    <p> </p>
+                    <input type="submit" value="Verify">
+            </form>
+</div>
+</div>
     {% endif %}
-
-
-    <div class="recently-issued">
-        {% if config.RECENT_CERT_IDS %}
-            <div class="recent-title">
-                <h1>Recently Issued</h1>
-            </div>
-            {% for cert_id in config.RECENT_CERT_IDS %}
-                <!--<a href="/{{ cert_id }}">{{ cert_id }}</a> <br>-->
-                <a href="{{ cert_id }}">{{ cert_id }}</a> <br>
-            {% endfor %}
-        {% endif %}
-    </div>
 
     {% endwith %}
 {% endblock %}
