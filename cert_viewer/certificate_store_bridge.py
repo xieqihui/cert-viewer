@@ -14,9 +14,10 @@ def award(certificate_uid=None):
         from . import certificate_formatter
         award = certificate_formatter.certificate_to_award(certificate_model)    
         model_id = datetime.strftime(datetime.now(), "%Y%m%d%H%M%S")
+        print(model_id)
         app.config[model_id] = certificate_model
         return {'award': award, 
-                'model_id': model_id}
+                'verification_info': model_id}
     elif requested_format == 'json':
         return get_award_json(certificate_uid)
     else:

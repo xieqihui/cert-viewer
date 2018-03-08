@@ -37,9 +37,7 @@
     <div class="verify">
         <p>This certificate was digitally signed by {{ award.organization }} and registered on the Bitcoin
             blockchain.</p>
-        <form action='/verify' method=['POST',]>
-             <button id="verify-button" name="verify-button" value="{{ model_id }}">Verify certificate</button>
-        </form> 
+        <button id="verify-button" value="{{ verification_info }}">Verify certificate</button>
         <span id="verified" class="verified"><img id="verified-icon" src="{{ theme_static('img/verified.png') }}"> Verified </span>
         <span id="not-verified" class="not-verified"><img id="not-verified-icon"
                                                           src="{{ theme_static('img/not-verified.png') }}"> Not Verified </span>

@@ -82,7 +82,7 @@ def add_rules(app, config):
     app.add_url_rule('/certificate/<certificate_uid>',
                      view_func=JsonAwardView.as_view('certificate', view=certificate_store_bridge.get_award_json))
 
-    app.add_url_rule('/verify',
+    app.add_url_rule('/verify/<certificate_uid>',
                      view_func=VerifyView.as_view('verify', view=verifier_bridge.verify))
 
     app.add_url_rule('/intro/', view_func=introduction_store_bridge.insert_introduction, methods=['POST', ])

@@ -39,8 +39,7 @@ $(document).ready(function () {
     $("#verify-button").click(function () {
         hidefields("#not-verified", "#verified");
         $("#progress-msg").html("");
-        var data = $(this).attr('value');
-        var uid = JSON.parse(data.replace(/'/g, '"')).uid;
+        var uid = $(this).attr('value');
         $.get("/verify/" + uid, function (res) {
             res = JSON.parse(res);
             $("#progress-msg").show();

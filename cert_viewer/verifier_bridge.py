@@ -6,8 +6,8 @@ import json
 from cert_viewer import app
 
 
-def verify():
-    model_id = request.args.get('verify-button')
+def verify(certificate_uid):
+    model_id = certificate_uid 
     certificate_model = app.config[model_id]
 
     from . import cert_store
