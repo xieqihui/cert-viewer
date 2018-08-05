@@ -29,7 +29,7 @@ def create_config():
     p.add_argument('--v1_aware', action='store_true', env_var='V1_AWARE', help='Whether to support v1 certs')
     p.add_argument('--site_description', env_var='SITE_DESCRIPTION',
                    help='Site description got issuer that is hosting the certificate viewer',
-                   default='A Blockchain Certificate Issuer Site')
+                   default='VeriTrue')
     p.add_argument('--issuer_logo_path', env_var='ISSUER_LOGO_PATH',
                    help='Issuer logo to display in certificate viewer', default='img/logo.png')
     p.add_argument('--theme', env_var='THEME', help='Flask theme to use for display', default='default')
